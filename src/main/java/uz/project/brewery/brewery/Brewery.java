@@ -8,7 +8,7 @@ import lombok.*;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @ToString
-class Brewery {
+public class Brewery {
     private String id;
     private String name;
     @JsonProperty("brewery_type")

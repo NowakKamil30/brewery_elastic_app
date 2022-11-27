@@ -22,8 +22,13 @@ class BreweryService implements DataService<Brewery> {
     @Override
     public Set<Brewery> getAll() {
         final var breweryResponse = restTemplate.getForEntity(appSettings.getDataUrl(), Brewery[].class);
-        final var breweries = Set.of(Objects.requireNonNull(breweryResponse.getBody()));
-        log.info("getALL brewery: {}", breweries);
-        return breweries;
+        log.info("getALL brewery response status: {}", breweryResponse.getStatusCode());
+        return Set.of(Objects.requireNonNull(breweryResponse.getBody()));
+    }
+
+    public Brewery get() {
+        return getAll().stream()
+                .findAny()
+                .orElse(null);
     }
 }

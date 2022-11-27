@@ -15,7 +15,6 @@ import java.util.Set;
 @Slf4j
 class BreweryController {
     private final BreweryService breweryService;
-
     @GetMapping
     ResponseEntity<Set<Brewery>> getAllBrewery() {
         log.debug("fetAllBrewery call");
